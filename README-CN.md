@@ -1,44 +1,43 @@
 # <center>CR5Robot</center>
 
-Chinese version of the README -> please [click here](./README-CN.md)
-
-# Building
+# 1. 源码编译
 ## ubuntu16.04
-
+### 下载源码
 ```
 cd $HOME/catkin_ws/src
 
 git clone https://github.com/Dobot-Arm/mg400.git -b kinetic-devel
 
 cd $HOME/catkin_ws
-
-# building
+```
+### 编译
+```
 catkin_make
-
-# activate this workspace
+```
+### 设置环境变量
+```
 source $HOME/catkin_ws/devel/setup.bash
 ```
 
 ## ubuntu18.04
-
-### Use git to clone the source code
+###下载源码
 ```
 cd $HOME/catkin_ws/src
+
 git clone https://github.com/Dobot-Arm/mg400.git -b melodic-devel
+
 cd $HOME/catkin_ws
 ```
-
-### building
+### 编译
 ```
 catkin_make
 ```
-
-### activate this workspace
+### 设置环境变量
 ```
 source $HOME/catkin_ws/devel/setup.bash
 ```
 
-### run the rviz demo
+### 运行 RVIZ
 ```
 roslaunch mg400 display.launch
 ```
