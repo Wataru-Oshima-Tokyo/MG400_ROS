@@ -1,4 +1,4 @@
-# <center>CR5Robot</center>
+# <center>MG400Robot</center>
 
 # 1. 源码编译
 ## ubuntu16.04

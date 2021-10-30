@@ -1,4 +1,4 @@
-# <center>CR5Robot</center>
+# <center>MG400Robot</center>
 
 Chinese version of the README -> please [click here](./README-CN.md)
 
