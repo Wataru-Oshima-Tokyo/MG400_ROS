@@ -37,37 +37,37 @@
 #include <mg400_bringup/SpeedL.h>
 #include <mg400_bringup/Arch.h>
 #include <mg400_bringup/CP.h>
-#include <bringup/LimZ.h>
-#include <bringup/SetArmOrientation.h>
-#include <bringup/PowerOn.h>
-#include <bringup/RunScript.h>
-#include <bringup/StopScript.h>
-#include <bringup/PauseScript.h>
-#include <bringup/ContinueScript.h>
-//#include <bringup/GetHoldRegs.h>
-//#include <bringup/SetHoldRegs.h>
-#include <bringup/SetSafeSkin.h>
-#include <bringup/SetObstacleAvoid.h>
+#include <mg400_bringup/LimZ.h>
+#include <mg400_bringup/SetArmOrientation.h>
+#include <mg400_bringup/PowerOn.h>
+#include <mg400_bringup/RunScript.h>
+#include <mg400_bringup/StopScript.h>
+#include <mg400_bringup/PauseScript.h>
+#include <mg400_bringup/ContinueScript.h>
+//#include <mg400_bringup/GetHoldRegs.h>
+//#include <mg400_bringup/SetHoldRegs.h>
+#include <mg400_bringup/SetSafeSkin.h>
+#include <mg400_bringup/SetObstacleAvoid.h>
 
-#include <bringup/SetCollisionLevel.h>
-#include <bringup/EmergencyStop.h>
+#include <mg400_bringup/SetCollisionLevel.h>
+#include <mg400_bringup/EmergencyStop.h>
 
-#include <bringup/MovJ.h>
-#include <bringup/MovL.h>
-#include <bringup/Jump.h>
-#include <bringup/Arc.h>
-#include <bringup/Sync.h>
-#include <bringup/Circle.h>
-#include <bringup/ServoJ.h>
-#include <bringup/StartTrace.h>
-#include <bringup/StartPath.h>
-#include <bringup/StartFCTrace.h>
-#include <bringup/MoveJog.h>
-#include <bringup/ServoP.h>
-#include <bringup/RelMovJ.h>
-#include <bringup/RelMovL.h>
-#include <bringup/JointMovJ.h>
-#include <bringup/RobotStatus.h>
+#include <mg400_bringup/MovJ.h>
+#include <mg400_bringup/MovL.h>
+#include <mg400_bringup/Jump.h>
+#include <mg400_bringup/Arc.h>
+#include <mg400_bringup/Sync.h>
+#include <mg400_bringup/Circle.h>
+#include <mg400_bringup/ServoJ.h>
+#include <mg400_bringup/StartTrace.h>
+#include <mg400_bringup/StartPath.h>
+#include <mg400_bringup/StartFCTrace.h>
+#include <mg400_bringup/MoveJog.h>
+#include <mg400_bringup/ServoP.h>
+#include <mg400_bringup/RelMovJ.h>
+#include <mg400_bringup/RelMovL.h>
+#include <mg400_bringup/JointMovJ.h>
+#include <mg400_bringup/RobotStatus.h>
 
 #include <sensor_msgs/JointState.h>
 
@@ -132,68 +132,68 @@ public:
     bool isConnected() const;
 
 protected:
-    bool enableRobot(bringup::EnableRobot::Request& request, bringup::EnableRobot::Response& response);
-    bool disableRobot(bringup::DisableRobot::Request& request, bringup::DisableRobot::Response& response);
-    bool clearError(bringup::ClearError::Request& request, bringup::ClearError::Response& response);
-    bool resetRobot(bringup::ResetRobot::Request& request, bringup::ResetRobot::Response& response);
-    bool speedFactor(bringup::SpeedFactor::Request& request, bringup::SpeedFactor::Response& response);
-    bool user(bringup::User::Request& request, bringup::User::Response& response);
-    bool tool(bringup::Tool::Request& request, bringup::Tool::Response& response);
-    bool robotMode(bringup::RobotMode::Request& request, bringup::RobotMode::Response& response);
-    bool payload(bringup::PayLoad::Request& request, bringup::PayLoad::Response& response);
-    bool DO(bringup::DO::Request& request, bringup::DO::Response& response);
-    bool DOExecute(bringup::DOExecute::Request& request, bringup::DOExecute::Response& response);
-    bool toolDO(bringup::ToolDO::Request& request, bringup::ToolDO::Response& response);
-    bool toolDOExecute(bringup::ToolDOExecute::Request& request, bringup::ToolDOExecute::Response& response);
-    bool AO(bringup::AO::Request& request, bringup::AO::Response& response);
-    bool AOExecute(bringup::AOExecute::Request& request, bringup::AOExecute::Response& response);
-    bool accJ(bringup::AccJ::Request& request, bringup::AccJ::Response& response);
-    bool accL(bringup::AccL::Request& request, bringup::AccL::Response& response);
-    bool speedJ(bringup::SpeedJ::Request& request, bringup::SpeedJ::Response& response);
-    bool speedL(bringup::SpeedL::Request& request, bringup::SpeedL::Response& response);
-    bool arch(bringup::Arch::Request& request, bringup::Arch::Response& response);
-    bool cp(bringup::CP::Request& request, bringup::CP::Response& response);
-    bool limZ(bringup::LimZ::Request& request, bringup::LimZ::Response& response);
-    bool setArmOrientation(bringup::SetArmOrientation::Request& request,
-                           bringup::SetArmOrientation::Response& response);
-    bool powerOn(bringup::PowerOn::Request& request, bringup::PowerOn::Response& response);
-    bool runScript(bringup::RunScript::Request& request, bringup::RunScript::Response& response);
-    bool stopScript(bringup::StopScript::Request& request, bringup::StopScript::Response& response);
-    bool pauseScript(bringup::PauseScript::Request& request, bringup::PauseScript::Response& response);
-    bool continueScript(bringup::ContinueScript::Request& request, bringup::ContinueScript::Response& response);
-    //    bool getHoldRegs(bringup::SpeedFactor::Request& request, bringup::SpeedFactor::Response& response);
-    //    bool setHoldRegs(bringup::SpeedFactor::Request& request, bringup::SpeedFactor::Response& response);
-    bool setSafeSkin(bringup::SetSafeSkin::Request& request, bringup::SetSafeSkin::Response& response);
-    bool setObstacleAvoid(bringup::SetObstacleAvoid::Request& request, bringup::SetObstacleAvoid::Response& response);
-    //    bool getTraceStartPose(bringup::SpeedFactor::Request& request, bringup::SpeedFactor::Response& response);
-    //    bool getPathStartPose(bringup::SpeedFactor::Request& request, bringup::SpeedFactor::Response& response);
-    //    bool positiveSolution(bringup::SpeedFactor::Request& request, bringup::SpeedFactor::Response& response);
-    //    bool inverseSolution(bringup::SpeedFactor::Request& request, bringup::SpeedFactor::Response& response);
-    bool setCollisionLevel(bringup::SetCollisionLevel::Request& request,
-                           bringup::SetCollisionLevel::Response& response);
-    //    bool handleTrajPoints(bringup::SpeedFactor::Request& request, bringup::SpeedFactor::Response& response);
-    //    bool getSixForceData(bringup::SpeedFactor::Request& request, bringup::SpeedFactor::Response& response);
-    //    bool getAngle(bringup::SpeedFactor::Request& request, bringup::SpeedFactor::Response& response);
-    //    bool getPose(bringup::SpeedFactor::Request& request, bringup::SpeedFactor::Response& response);
-    bool emergencyStop(bringup::EmergencyStop::Request& request, bringup::EmergencyStop::Response& response);
+    bool enableRobot(mg400_bringup::EnableRobot::Request& request, mg400_bringup::EnableRobot::Response& response);
+    bool disableRobot(mg400_bringup::DisableRobot::Request& request, mg400_bringup::DisableRobot::Response& response);
+    bool clearError(mg400_bringup::ClearError::Request& request, mg400_bringup::ClearError::Response& response);
+    bool resetRobot(mg400_bringup::ResetRobot::Request& request, mg400_bringup::ResetRobot::Response& response);
+    bool speedFactor(mg400_bringup::SpeedFactor::Request& request, mg400_bringup::SpeedFactor::Response& response);
+    bool user(mg400_bringup::User::Request& request, mg400_bringup::User::Response& response);
+    bool tool(mg400_bringup::Tool::Request& request, mg400_bringup::Tool::Response& response);
+    bool robotMode(mg400_bringup::RobotMode::Request& request, mg400_bringup::RobotMode::Response& response);
+    bool payload(mg400_bringup::PayLoad::Request& request, mg400_bringup::PayLoad::Response& response);
+    bool DO(mg400_bringup::DO::Request& request, mg400_bringup::DO::Response& response);
+    bool DOExecute(mg400_bringup::DOExecute::Request& request, mg400_bringup::DOExecute::Response& response);
+    bool toolDO(mg400_bringup::ToolDO::Request& request, mg400_bringup::ToolDO::Response& response);
+    bool toolDOExecute(mg400_bringup::ToolDOExecute::Request& request, mg400_bringup::ToolDOExecute::Response& response);
+    bool AO(mg400_bringup::AO::Request& request, mg400_bringup::AO::Response& response);
+    bool AOExecute(mg400_bringup::AOExecute::Request& request, mg400_bringup::AOExecute::Response& response);
+    bool accJ(mg400_bringup::AccJ::Request& request, mg400_bringup::AccJ::Response& response);
+    bool accL(mg400_bringup::AccL::Request& request, mg400_bringup::AccL::Response& response);
+    bool speedJ(mg400_bringup::SpeedJ::Request& request, mg400_bringup::SpeedJ::Response& response);
+    bool speedL(mg400_bringup::SpeedL::Request& request, mg400_bringup::SpeedL::Response& response);
+    bool arch(mg400_bringup::Arch::Request& request, mg400_bringup::Arch::Response& response);
+    bool cp(mg400_bringup::CP::Request& request, mg400_bringup::CP::Response& response);
+    bool limZ(mg400_bringup::LimZ::Request& request, mg400_bringup::LimZ::Response& response);
+    bool setArmOrientation(mg400_bringup::SetArmOrientation::Request& request,
+                           mg400_bringup::SetArmOrientation::Response& response);
+    bool powerOn(mg400_bringup::PowerOn::Request& request, mg400_bringup::PowerOn::Response& response);
+    bool runScript(mg400_bringup::RunScript::Request& request, mg400_bringup::RunScript::Response& response);
+    bool stopScript(mg400_bringup::StopScript::Request& request, mg400_bringup::StopScript::Response& response);
+    bool pauseScript(mg400_bringup::PauseScript::Request& request, mg400_bringup::PauseScript::Response& response);
+    bool continueScript(mg400_bringup::ContinueScript::Request& request, mg400_bringup::ContinueScript::Response& response);
+    //    bool getHoldRegs(mg400_bringup::SpeedFactor::Request& request, mg400_bringup::SpeedFactor::Response& response);
+    //    bool setHoldRegs(mg400_bringup::SpeedFactor::Request& request, mg400_bringup::SpeedFactor::Response& response);
+    bool setSafeSkin(mg400_bringup::SetSafeSkin::Request& request, mg400_bringup::SetSafeSkin::Response& response);
+    bool setObstacleAvoid(mg400_bringup::SetObstacleAvoid::Request& request, mg400_bringup::SetObstacleAvoid::Response& response);
+    //    bool getTraceStartPose(mg400_bringup::SpeedFactor::Request& request, mg400_bringup::SpeedFactor::Response& response);
+    //    bool getPathStartPose(mg400_bringup::SpeedFactor::Request& request, mg400_bringup::SpeedFactor::Response& response);
+    //    bool positiveSolution(mg400_bringup::SpeedFactor::Request& request, mg400_bringup::SpeedFactor::Response& response);
+    //    bool inverseSolution(mg400_bringup::SpeedFactor::Request& request, mg400_bringup::SpeedFactor::Response& response);
+    bool setCollisionLevel(mg400_bringup::SetCollisionLevel::Request& request,
+                           mg400_bringup::SetCollisionLevel::Response& response);
+    //    bool handleTrajPoints(mg400_bringup::SpeedFactor::Request& request, mg400_bringup::SpeedFactor::Response& response);
+    //    bool getSixForceData(mg400_bringup::SpeedFactor::Request& request, mg400_bringup::SpeedFactor::Response& response);
+    //    bool getAngle(mg400_bringup::SpeedFactor::Request& request, mg400_bringup::SpeedFactor::Response& response);
+    //    bool getPose(mg400_bringup::SpeedFactor::Request& request, mg400_bringup::SpeedFactor::Response& response);
+    bool emergencyStop(mg400_bringup::EmergencyStop::Request& request, mg400_bringup::EmergencyStop::Response& response);
 
-    bool movJ(bringup::MovJ::Request& request, bringup::MovJ::Response& response);
-    bool movL(bringup::MovL::Request& request, bringup::MovL::Response& response);
-    bool jointMovJ(bringup::JointMovJ::Request& request, bringup::JointMovJ::Response& response);
-    bool jump(bringup::Jump::Request& request, bringup::Jump::Response& response);
-    bool relMovJ(bringup::RelMovJ::Request& request, bringup::RelMovJ::Response& response);
-    bool relMovL(bringup::RelMovL::Request& request, bringup::RelMovL::Response& response);
-    // bool MovLIO(bringup::RelMovL::Request& request, bringup::RelMovL::Response& response);
-    // bool MovJIO(bringup::RelMovL::Request& request, bringup::RelMovL::Response& response);
-    bool arc(bringup::Arc::Request& request, bringup::Arc::Response& response);
-    bool circle(bringup::Circle::Request& request, bringup::Circle::Response& response);
-    bool servoJ(bringup::ServoJ::Request& request, bringup::ServoJ::Response& response);
-    bool servoP(bringup::ServoP::Request& request, bringup::ServoP::Response& response);
-    bool sync(bringup::Sync::Request& request, bringup::Sync::Response& response);
-    bool startTrace(bringup::StartTrace::Request& request, bringup::StartTrace::Response& response);
-    bool startPath(bringup::StartPath::Request& request, bringup::StartPath::Response& response);
-    bool startFCTrace(bringup::StartFCTrace::Request& request, bringup::StartFCTrace::Response& response);
-    bool moveJog(bringup::MoveJog::Request& request, bringup::MoveJog::Response& response);
+    bool movJ(mg400_bringup::MovJ::Request& request, mg400_bringup::MovJ::Response& response);
+    bool movL(mg400_bringup::MovL::Request& request, mg400_bringup::MovL::Response& response);
+    bool jointMovJ(mg400_bringup::JointMovJ::Request& request, mg400_bringup::JointMovJ::Response& response);
+    bool jump(mg400_bringup::Jump::Request& request, mg400_bringup::Jump::Response& response);
+    bool relMovJ(mg400_bringup::RelMovJ::Request& request, mg400_bringup::RelMovJ::Response& response);
+    bool relMovL(mg400_bringup::RelMovL::Request& request, mg400_bringup::RelMovL::Response& response);
+    // bool MovLIO(mg400_bringup::RelMovL::Request& request, mg400_bringup::RelMovL::Response& response);
+    // bool MovJIO(mg400_bringup::RelMovL::Request& request, mg400_bringup::RelMovL::Response& response);
+    bool arc(mg400_bringup::Arc::Request& request, mg400_bringup::Arc::Response& response);
+    bool circle(mg400_bringup::Circle::Request& request, mg400_bringup::Circle::Response& response);
+    bool servoJ(mg400_bringup::ServoJ::Request& request, mg400_bringup::ServoJ::Response& response);
+    bool servoP(mg400_bringup::ServoP::Request& request, mg400_bringup::ServoP::Response& response);
+    bool sync(mg400_bringup::Sync::Request& request, mg400_bringup::Sync::Response& response);
+    bool startTrace(mg400_bringup::StartTrace::Request& request, mg400_bringup::StartTrace::Response& response);
+    bool startPath(mg400_bringup::StartPath::Request& request, mg400_bringup::StartPath::Response& response);
+    bool startFCTrace(mg400_bringup::StartFCTrace::Request& request, mg400_bringup::StartFCTrace::Response& response);
+    bool moveJog(mg400_bringup::MoveJog::Request& request, mg400_bringup::MoveJog::Response& response);
 
 private:
     void feedbackHandle(const ros::TimerEvent& tm,

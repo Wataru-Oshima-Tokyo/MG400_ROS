@@ -11,10 +11,10 @@
 
 #include <ros/ros.h>
 #include <ros/param.h>
-#include <bringup/robot.h>
+#include <mg400_bringup/robot.h>
 #include <sensor_msgs/JointState.h>
-#include <bringup/convert.h>
-#include <bringup/ToolVectorActual.h>
+#include <mg400_bringup/convert.h>
+#include <mg400_bringup/ToolVectorActual.h>
 
 int main(int argc, char* argv[])
 {
@@ -29,12 +29,12 @@ int main(int argc, char* argv[])
         async_spinner.start();
 
         ros::Publisher joint_state_pub = private_node.advertise<sensor_msgs::JointState>("/joint_states", 100);
-        bringup::RobotStatus robot_status_msg;
-        ros::Publisher robot_status_pub = private_node.advertise<bringup::RobotStatus>("/bringup/msg/RobotStatus", 100);
+        mg400_bringup::RobotStatus robot_status_msg;
+        ros::Publisher robot_status_pub = private_node.advertise<mg400_bringup::RobotStatus>("/mg400_bringup/msg/RobotStatus", 100);
 
-        bringup::ToolVectorActual tool_vector_actual_msg;
+        mg400_bringup::ToolVectorActual tool_vector_actual_msg;
         ros::Publisher tool_vector_pub =
-            private_node.advertise<bringup::ToolVectorActual>("/bringup/msg/ToolVectorActual", 100);
+            private_node.advertise<mg400_bringup::ToolVectorActual>("/mg400_bringup/msg/ToolVectorActual", 100);
 
         MG400Robot robot(private_node, "/follow_joint_trajectory/follow_joint_trajectory");
 

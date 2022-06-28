@@ -11,7 +11,7 @@
 
 #include <ros/ros.h>
 #include <ros/param.h>
-#include <bringup/robot.h>
+#include <mg400_bringup/robot.h>
 
 MG400Robot::MG400Robot(ros::NodeHandle& nh, std::string name)
     : ActionServer<FollowJointTrajectoryAction>(nh, std::move(name), false)
@@ -38,56 +38,56 @@ void MG400Robot::init()
     commander_ = std::make_shared<CR5Commander>(ip);
     commander_->init();
 
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/EnableRobot", &MG400Robot::enableRobot, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/EnableRobot", &MG400Robot::enableRobot, this));
     server_tbl_.push_back(
-        control_nh_.advertiseService("/bringup/srv/DisableRobot", &MG400Robot::disableRobot, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/ClearError", &MG400Robot::clearError, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/ResetRobot", &MG400Robot::resetRobot, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/SpeedFactor", &MG400Robot::speedFactor, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/User", &MG400Robot::user, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/Tool", &MG400Robot::tool, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/RobotMode", &MG400Robot::robotMode, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/PayLoad", &MG400Robot::payload, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/DO", &MG400Robot::DO, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/DOExecute", &MG400Robot::DOExecute, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/ToolDO", &MG400Robot::toolDO, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/ToolDOExecute", &MG400Robot::toolDOExecute, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/AO", &MG400Robot::AO, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/AOExecute", &MG400Robot::AOExecute, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/AccJ", &MG400Robot::accJ, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/AccL", &MG400Robot::accL, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/SpeedJ", &MG400Robot::speedJ, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/SpeedL", &MG400Robot::speedL, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/Arch", &MG400Robot::arch, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/CP", &MG400Robot::cp, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/LimZ", &MG400Robot::limZ, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/SetArmOrientation", &MG400Robot::setArmOrientation, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/PowerOn", &MG400Robot::powerOn, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/RunScript", &MG400Robot::runScript, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/StopScript", &MG400Robot::stopScript, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/PauseScript", &MG400Robot::pauseScript, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/ContinueScript", &MG400Robot::continueScript, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/SetSafeSkin", &MG400Robot::setSafeSkin, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/SetObstacleAvoid", &MG400Robot::setObstacleAvoid, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/SetCollisionLevel", &MG400Robot::setCollisionLevel, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/EmergencyStop", &MG400Robot::emergencyStop, this));
+        control_nh_.advertiseService("/mg400_bringup/srv/DisableRobot", &MG400Robot::disableRobot, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/ClearError", &MG400Robot::clearError, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/ResetRobot", &MG400Robot::resetRobot, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/SpeedFactor", &MG400Robot::speedFactor, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/User", &MG400Robot::user, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/Tool", &MG400Robot::tool, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/RobotMode", &MG400Robot::robotMode, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/PayLoad", &MG400Robot::payload, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/DO", &MG400Robot::DO, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/DOExecute", &MG400Robot::DOExecute, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/ToolDO", &MG400Robot::toolDO, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/ToolDOExecute", &MG400Robot::toolDOExecute, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/AO", &MG400Robot::AO, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/AOExecute", &MG400Robot::AOExecute, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/AccJ", &MG400Robot::accJ, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/AccL", &MG400Robot::accL, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/SpeedJ", &MG400Robot::speedJ, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/SpeedL", &MG400Robot::speedL, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/Arch", &MG400Robot::arch, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/CP", &MG400Robot::cp, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/LimZ", &MG400Robot::limZ, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/SetArmOrientation", &MG400Robot::setArmOrientation, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/PowerOn", &MG400Robot::powerOn, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/RunScript", &MG400Robot::runScript, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/StopScript", &MG400Robot::stopScript, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/PauseScript", &MG400Robot::pauseScript, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/ContinueScript", &MG400Robot::continueScript, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/SetSafeSkin", &MG400Robot::setSafeSkin, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/SetObstacleAvoid", &MG400Robot::setObstacleAvoid, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/SetCollisionLevel", &MG400Robot::setCollisionLevel, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/EmergencyStop", &MG400Robot::emergencyStop, this));
 
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/MovJ", &MG400Robot::movJ, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/MovL", &MG400Robot::movL, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/JointMovJ", &MG400Robot::jointMovJ, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/Jump", &MG400Robot::jump, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/RelMovJ", &MG400Robot::relMovJ, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/RelMovL", &MG400Robot::relMovL, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/Arc", &MG400Robot::arc, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/Circle", &MG400Robot::circle, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/ServoJ", &MG400Robot::servoJ, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/ServoP", &MG400Robot::servoP, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/Sync", &MG400Robot::sync, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/StartTrace", &MG400Robot::startTrace, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/StartPath", &MG400Robot::startPath, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/MovJ", &MG400Robot::movJ, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/MovL", &MG400Robot::movL, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/JointMovJ", &MG400Robot::jointMovJ, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/Jump", &MG400Robot::jump, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/RelMovJ", &MG400Robot::relMovJ, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/RelMovL", &MG400Robot::relMovL, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/Arc", &MG400Robot::arc, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/Circle", &MG400Robot::circle, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/ServoJ", &MG400Robot::servoJ, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/ServoP", &MG400Robot::servoP, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/Sync", &MG400Robot::sync, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/StartTrace", &MG400Robot::startTrace, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/StartPath", &MG400Robot::startPath, this));
     server_tbl_.push_back(
-        control_nh_.advertiseService("/bringup/srv/StartFCTrace", &MG400Robot::startFCTrace, this));
-    server_tbl_.push_back(control_nh_.advertiseService("/bringup/srv/MoveJog", &MG400Robot::moveJog, this));
+        control_nh_.advertiseService("/mg400_bringup/srv/StartFCTrace", &MG400Robot::startFCTrace, this));
+    server_tbl_.push_back(control_nh_.advertiseService("/mg400_bringup/srv/MoveJog", &MG400Robot::moveJog, this));
 
     registerGoalCallback(boost::bind(&MG400Robot::goalHandle, this, _1));
     registerCancelCallback(boost::bind(&MG400Robot::cancelHandle, this, _1));
@@ -196,7 +196,7 @@ void MG400Robot::getToolVectorActual(double* val)
  *----------------------------------------------------------------------------------------------------------------------
  */
 
-bool MG400Robot::enableRobot(bringup::EnableRobot::Request& request, bringup::EnableRobot::Response& response)
+bool MG400Robot::enableRobot(mg400_bringup::EnableRobot::Request& request, mg400_bringup::EnableRobot::Response& response)
 {
     try
     {
@@ -212,8 +212,8 @@ bool MG400Robot::enableRobot(bringup::EnableRobot::Request& request, bringup::En
     }
 }
 
-bool MG400Robot::disableRobot(bringup::DisableRobot::Request& request,
-                            bringup::DisableRobot::Response& response)
+bool MG400Robot::disableRobot(mg400_bringup::DisableRobot::Request& request,
+                            mg400_bringup::DisableRobot::Response& response)
 {
     try
     {
@@ -229,7 +229,7 @@ bool MG400Robot::disableRobot(bringup::DisableRobot::Request& request,
     }
 }
 
-bool MG400Robot::clearError(bringup::ClearError::Request& request, bringup::ClearError::Response& response)
+bool MG400Robot::clearError(mg400_bringup::ClearError::Request& request, mg400_bringup::ClearError::Response& response)
 {
     try
     {
@@ -245,7 +245,7 @@ bool MG400Robot::clearError(bringup::ClearError::Request& request, bringup::Clea
     }
 }
 
-bool MG400Robot::resetRobot(bringup::ResetRobot::Request& request, bringup::ResetRobot::Response& response)
+bool MG400Robot::resetRobot(mg400_bringup::ResetRobot::Request& request, mg400_bringup::ResetRobot::Response& response)
 {
     try
     {
@@ -261,7 +261,7 @@ bool MG400Robot::resetRobot(bringup::ResetRobot::Request& request, bringup::Rese
     }
 }
 
-bool MG400Robot::speedFactor(bringup::SpeedFactor::Request& request, bringup::SpeedFactor::Response& response)
+bool MG400Robot::speedFactor(mg400_bringup::SpeedFactor::Request& request, mg400_bringup::SpeedFactor::Response& response)
 {
     try
     {
@@ -279,7 +279,7 @@ bool MG400Robot::speedFactor(bringup::SpeedFactor::Request& request, bringup::Sp
     }
 }
 
-bool MG400Robot::user(bringup::User::Request& request, bringup::User::Response& response)
+bool MG400Robot::user(mg400_bringup::User::Request& request, mg400_bringup::User::Response& response)
 {
     try
     {
@@ -297,7 +297,7 @@ bool MG400Robot::user(bringup::User::Request& request, bringup::User::Response& 
     }
 }
 
-bool MG400Robot::tool(bringup::Tool::Request& request, bringup::Tool::Response& response)
+bool MG400Robot::tool(mg400_bringup::Tool::Request& request, mg400_bringup::Tool::Response& response)
 {
     try
     {
@@ -315,7 +315,7 @@ bool MG400Robot::tool(bringup::Tool::Request& request, bringup::Tool::Response& 
     }
 }
 
-bool MG400Robot::robotMode(bringup::RobotMode::Request& request, bringup::RobotMode::Response& response)
+bool MG400Robot::robotMode(mg400_bringup::RobotMode::Request& request, mg400_bringup::RobotMode::Response& response)
 {
     try
     {
@@ -332,7 +332,7 @@ bool MG400Robot::robotMode(bringup::RobotMode::Request& request, bringup::RobotM
     }
 }
 
-bool MG400Robot::payload(bringup::PayLoad::Request& request, bringup::PayLoad::Response& response)
+bool MG400Robot::payload(mg400_bringup::PayLoad::Request& request, mg400_bringup::PayLoad::Response& response)
 {
     try
     {
@@ -350,7 +350,7 @@ bool MG400Robot::payload(bringup::PayLoad::Request& request, bringup::PayLoad::R
     }
 }
 
-bool MG400Robot::DO(bringup::DO::Request& request, bringup::DO::Response& response)
+bool MG400Robot::DO(mg400_bringup::DO::Request& request, mg400_bringup::DO::Response& response)
 {
     try
     {
@@ -368,7 +368,7 @@ bool MG400Robot::DO(bringup::DO::Request& request, bringup::DO::Response& respon
     }
 }
 
-bool MG400Robot::DOExecute(bringup::DOExecute::Request& request, bringup::DOExecute::Response& response)
+bool MG400Robot::DOExecute(mg400_bringup::DOExecute::Request& request, mg400_bringup::DOExecute::Response& response)
 {
     try
     {
@@ -386,7 +386,7 @@ bool MG400Robot::DOExecute(bringup::DOExecute::Request& request, bringup::DOExec
     }
 }
 
-bool MG400Robot::toolDO(bringup::ToolDO::Request& request, bringup::ToolDO::Response& response)
+bool MG400Robot::toolDO(mg400_bringup::ToolDO::Request& request, mg400_bringup::ToolDO::Response& response)
 {
     try
     {
@@ -404,7 +404,7 @@ bool MG400Robot::toolDO(bringup::ToolDO::Request& request, bringup::ToolDO::Resp
     }
 }
 
-bool MG400Robot::toolDOExecute(bringup::ToolDOExecute::Request& request, bringup::ToolDOExecute::Response& response)
+bool MG400Robot::toolDOExecute(mg400_bringup::ToolDOExecute::Request& request, mg400_bringup::ToolDOExecute::Response& response)
 {
     try
     {
@@ -422,7 +422,7 @@ bool MG400Robot::toolDOExecute(bringup::ToolDOExecute::Request& request, bringup
     }
 }
 
-bool MG400Robot::AO(bringup::AO::Request& request, bringup::AO::Response& response)
+bool MG400Robot::AO(mg400_bringup::AO::Request& request, mg400_bringup::AO::Response& response)
 {
     try
     {
@@ -440,7 +440,7 @@ bool MG400Robot::AO(bringup::AO::Request& request, bringup::AO::Response& respon
     }
 }
 
-bool MG400Robot::AOExecute(bringup::AOExecute::Request& request, bringup::AOExecute::Response& response)
+bool MG400Robot::AOExecute(mg400_bringup::AOExecute::Request& request, mg400_bringup::AOExecute::Response& response)
 {
     try
     {
@@ -458,7 +458,7 @@ bool MG400Robot::AOExecute(bringup::AOExecute::Request& request, bringup::AOExec
     }
 }
 
-bool MG400Robot::accJ(bringup::AccJ::Request& request, bringup::AccJ::Response& response)
+bool MG400Robot::accJ(mg400_bringup::AccJ::Request& request, mg400_bringup::AccJ::Response& response)
 {
     try
     {
@@ -476,7 +476,7 @@ bool MG400Robot::accJ(bringup::AccJ::Request& request, bringup::AccJ::Response& 
     }
 }
 
-bool MG400Robot::accL(bringup::AccL::Request& request, bringup::AccL::Response& response)
+bool MG400Robot::accL(mg400_bringup::AccL::Request& request, mg400_bringup::AccL::Response& response)
 {
     try
     {
@@ -494,7 +494,7 @@ bool MG400Robot::accL(bringup::AccL::Request& request, bringup::AccL::Response& 
     }
 }
 
-bool MG400Robot::speedJ(bringup::SpeedJ::Request& request, bringup::SpeedJ::Response& response)
+bool MG400Robot::speedJ(mg400_bringup::SpeedJ::Request& request, mg400_bringup::SpeedJ::Response& response)
 {
     try
     {
@@ -512,7 +512,7 @@ bool MG400Robot::speedJ(bringup::SpeedJ::Request& request, bringup::SpeedJ::Resp
     }
 }
 
-bool MG400Robot::speedL(bringup::SpeedL::Request& request, bringup::SpeedL::Response& response)
+bool MG400Robot::speedL(mg400_bringup::SpeedL::Request& request, mg400_bringup::SpeedL::Response& response)
 {
     try
     {
@@ -530,7 +530,7 @@ bool MG400Robot::speedL(bringup::SpeedL::Request& request, bringup::SpeedL::Resp
     }
 }
 
-bool MG400Robot::arch(bringup::Arch::Request& request, bringup::Arch::Response& response)
+bool MG400Robot::arch(mg400_bringup::Arch::Request& request, mg400_bringup::Arch::Response& response)
 {
     try
     {
@@ -548,7 +548,7 @@ bool MG400Robot::arch(bringup::Arch::Request& request, bringup::Arch::Response& 
     }
 }
 
-bool MG400Robot::cp(bringup::CP::Request& request, bringup::CP::Response& response)
+bool MG400Robot::cp(mg400_bringup::CP::Request& request, mg400_bringup::CP::Response& response)
 {
     try
     {
@@ -566,7 +566,7 @@ bool MG400Robot::cp(bringup::CP::Request& request, bringup::CP::Response& respon
     }
 }
 
-bool MG400Robot::limZ(bringup::LimZ::Request& request, bringup::LimZ::Response& response)
+bool MG400Robot::limZ(mg400_bringup::LimZ::Request& request, mg400_bringup::LimZ::Response& response)
 {
     try
     {
@@ -584,7 +584,7 @@ bool MG400Robot::limZ(bringup::LimZ::Request& request, bringup::LimZ::Response& 
     }
 }
 
-bool MG400Robot::setArmOrientation(bringup::SetArmOrientation::Request& request, bringup::SetArmOrientation::Response& response)
+bool MG400Robot::setArmOrientation(mg400_bringup::SetArmOrientation::Request& request, mg400_bringup::SetArmOrientation::Response& response)
 {
     try
     {
@@ -602,7 +602,7 @@ bool MG400Robot::setArmOrientation(bringup::SetArmOrientation::Request& request,
     }
 }
 
-bool MG400Robot::powerOn(bringup::PowerOn::Request& request, bringup::PowerOn::Response& response)
+bool MG400Robot::powerOn(mg400_bringup::PowerOn::Request& request, mg400_bringup::PowerOn::Response& response)
 {
     try
     {
@@ -619,7 +619,7 @@ bool MG400Robot::powerOn(bringup::PowerOn::Request& request, bringup::PowerOn::R
     }
 }
 
-bool MG400Robot::runScript(bringup::RunScript::Request& request, bringup::RunScript::Response& response)
+bool MG400Robot::runScript(mg400_bringup::RunScript::Request& request, mg400_bringup::RunScript::Response& response)
 {
     try
     {
@@ -637,7 +637,7 @@ bool MG400Robot::runScript(bringup::RunScript::Request& request, bringup::RunScr
     }
 }
 
-bool MG400Robot::stopScript(bringup::StopScript::Request& request, bringup::StopScript::Response& response)
+bool MG400Robot::stopScript(mg400_bringup::StopScript::Request& request, mg400_bringup::StopScript::Response& response)
 {
     try
     {
@@ -654,7 +654,7 @@ bool MG400Robot::stopScript(bringup::StopScript::Request& request, bringup::Stop
     }
 }
 
-bool MG400Robot::pauseScript(bringup::PauseScript::Request& request, bringup::PauseScript::Response& response)
+bool MG400Robot::pauseScript(mg400_bringup::PauseScript::Request& request, mg400_bringup::PauseScript::Response& response)
 {
     try
     {
@@ -671,7 +671,7 @@ bool MG400Robot::pauseScript(bringup::PauseScript::Request& request, bringup::Pa
     }
 }
 
-bool MG400Robot::continueScript(bringup::ContinueScript::Request& request, bringup::ContinueScript::Response& response)
+bool MG400Robot::continueScript(mg400_bringup::ContinueScript::Request& request, mg400_bringup::ContinueScript::Response& response)
 {
     try
     {
@@ -688,7 +688,7 @@ bool MG400Robot::continueScript(bringup::ContinueScript::Request& request, bring
     }
 }
 
-bool MG400Robot::setSafeSkin(bringup::SetSafeSkin::Request& request, bringup::SetSafeSkin::Response& response)
+bool MG400Robot::setSafeSkin(mg400_bringup::SetSafeSkin::Request& request, mg400_bringup::SetSafeSkin::Response& response)
 {
     try
     {
@@ -706,7 +706,7 @@ bool MG400Robot::setSafeSkin(bringup::SetSafeSkin::Request& request, bringup::Se
     }
 }
 
-bool MG400Robot::setObstacleAvoid(bringup::SetObstacleAvoid::Request& request, bringup::SetObstacleAvoid::Response& response)
+bool MG400Robot::setObstacleAvoid(mg400_bringup::SetObstacleAvoid::Request& request, mg400_bringup::SetObstacleAvoid::Response& response)
 {
     try
     {
@@ -724,7 +724,7 @@ bool MG400Robot::setObstacleAvoid(bringup::SetObstacleAvoid::Request& request, b
     }
 }
 
-bool MG400Robot::setCollisionLevel(bringup::SetCollisionLevel::Request& request, bringup::SetCollisionLevel::Response& response)
+bool MG400Robot::setCollisionLevel(mg400_bringup::SetCollisionLevel::Request& request, mg400_bringup::SetCollisionLevel::Response& response)
 {
     try
     {
@@ -742,7 +742,7 @@ bool MG400Robot::setCollisionLevel(bringup::SetCollisionLevel::Request& request,
     }
 }
 
-bool MG400Robot::emergencyStop(bringup::EmergencyStop::Request& request, bringup::EmergencyStop::Response& response)
+bool MG400Robot::emergencyStop(mg400_bringup::EmergencyStop::Request& request, mg400_bringup::EmergencyStop::Response& response)
 {
     try
     {
@@ -767,7 +767,7 @@ bool MG400Robot::emergencyStop(bringup::EmergencyStop::Request& request, bringup
  *----------------------------------------------------------------------------------------------------------------------
  */
 
-bool MG400Robot::movJ(bringup::MovJ::Request& request, bringup::MovJ::Response& response)
+bool MG400Robot::movJ(mg400_bringup::MovJ::Request& request, mg400_bringup::MovJ::Response& response)
 {
     try
     {
@@ -783,7 +783,7 @@ bool MG400Robot::movJ(bringup::MovJ::Request& request, bringup::MovJ::Response& 
     }
 }
 
-bool MG400Robot::movL(bringup::MovL::Request& request, bringup::MovL::Response& response)
+bool MG400Robot::movL(mg400_bringup::MovL::Request& request, mg400_bringup::MovL::Response& response)
 {
     try
     {
@@ -799,7 +799,7 @@ bool MG400Robot::movL(bringup::MovL::Request& request, bringup::MovL::Response& 
     }
 }
 
-bool MG400Robot::servoJ(bringup::ServoJ::Request& request, bringup::ServoJ::Response& response)
+bool MG400Robot::servoJ(mg400_bringup::ServoJ::Request& request, mg400_bringup::ServoJ::Response& response)
 {
     try
     {
@@ -815,7 +815,7 @@ bool MG400Robot::servoJ(bringup::ServoJ::Request& request, bringup::ServoJ::Resp
     }
 }
 
-bool MG400Robot::jump(bringup::Jump::Request& request, bringup::Jump::Response& response)
+bool MG400Robot::jump(mg400_bringup::Jump::Request& request, mg400_bringup::Jump::Response& response)
 {
     try
     {
@@ -834,7 +834,7 @@ bool MG400Robot::jump(bringup::Jump::Request& request, bringup::Jump::Response& 
     }
 }
 
-bool MG400Robot::arc(bringup::Arc::Request& request, bringup::Arc::Response& response)
+bool MG400Robot::arc(mg400_bringup::Arc::Request& request, mg400_bringup::Arc::Response& response)
 {
     try
     {
@@ -854,7 +854,7 @@ bool MG400Robot::arc(bringup::Arc::Request& request, bringup::Arc::Response& res
     }
 }
 
-bool MG400Robot::circle(bringup::Circle::Request& request, bringup::Circle::Response& response)
+bool MG400Robot::circle(mg400_bringup::Circle::Request& request, mg400_bringup::Circle::Response& response)
 {
     try
     {
@@ -874,7 +874,7 @@ bool MG400Robot::circle(bringup::Circle::Request& request, bringup::Circle::Resp
     }
 }
 
-bool MG400Robot::servoP(bringup::ServoP::Request& request, bringup::ServoP::Response& response)
+bool MG400Robot::servoP(mg400_bringup::ServoP::Request& request, mg400_bringup::ServoP::Response& response)
 {
     try
     {
@@ -890,7 +890,7 @@ bool MG400Robot::servoP(bringup::ServoP::Request& request, bringup::ServoP::Resp
     }
 }
 
-bool MG400Robot::relMovJ(bringup::RelMovJ::Request& request, bringup::RelMovJ::Response& response)
+bool MG400Robot::relMovJ(mg400_bringup::RelMovJ::Request& request, mg400_bringup::RelMovJ::Response& response)
 {
     try
     {
@@ -907,7 +907,7 @@ bool MG400Robot::relMovJ(bringup::RelMovJ::Request& request, bringup::RelMovJ::R
     }
 }
 
-bool MG400Robot::relMovL(bringup::RelMovL::Request& request, bringup::RelMovL::Response& response)
+bool MG400Robot::relMovL(mg400_bringup::RelMovL::Request& request, mg400_bringup::RelMovL::Response& response)
 {
     try
     {
@@ -923,7 +923,7 @@ bool MG400Robot::relMovL(bringup::RelMovL::Request& request, bringup::RelMovL::R
     }
 }
 
-bool MG400Robot::jointMovJ(bringup::JointMovJ::Request& request, bringup::JointMovJ::Response& response)
+bool MG400Robot::jointMovJ(mg400_bringup::JointMovJ::Request& request, mg400_bringup::JointMovJ::Response& response)
 {
     try
     {
@@ -939,7 +939,7 @@ bool MG400Robot::jointMovJ(bringup::JointMovJ::Request& request, bringup::JointM
     }
 }
 
-bool MG400Robot::sync(bringup::Sync::Request& request, bringup::Sync::Response& response)
+bool MG400Robot::sync(mg400_bringup::Sync::Request& request, mg400_bringup::Sync::Response& response)
 {
     try
     {
@@ -956,7 +956,7 @@ bool MG400Robot::sync(bringup::Sync::Request& request, bringup::Sync::Response& 
     }
 }
 
-bool MG400Robot::startTrace(bringup::StartTrace::Request& request, bringup::StartTrace::Response& response)
+bool MG400Robot::startTrace(mg400_bringup::StartTrace::Request& request, mg400_bringup::StartTrace::Response& response)
 {
     try
     {
@@ -974,7 +974,7 @@ bool MG400Robot::startTrace(bringup::StartTrace::Request& request, bringup::Star
     }
 }
 
-bool MG400Robot::startPath(bringup::StartPath::Request& request, bringup::StartPath::Response& response)
+bool MG400Robot::startPath(mg400_bringup::StartPath::Request& request, mg400_bringup::StartPath::Response& response)
 {
     try
     {
@@ -992,8 +992,8 @@ bool MG400Robot::startPath(bringup::StartPath::Request& request, bringup::StartP
     }
 }
 
-bool MG400Robot::startFCTrace(bringup::StartFCTrace::Request& request,
-                            bringup::StartFCTrace::Response& response)
+bool MG400Robot::startFCTrace(mg400_bringup::StartFCTrace::Request& request,
+                            mg400_bringup::StartFCTrace::Response& response)
 {
     try
     {
@@ -1011,7 +1011,7 @@ bool MG400Robot::startFCTrace(bringup::StartFCTrace::Request& request,
     }
 }
 
-bool MG400Robot::moveJog(bringup::MoveJog::Request& request, bringup::MoveJog::Response& response)
+bool MG400Robot::moveJog(mg400_bringup::MoveJog::Request& request, mg400_bringup::MoveJog::Response& response)
 {
     try
     {
