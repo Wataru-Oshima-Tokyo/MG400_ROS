@@ -10,7 +10,7 @@ project(joint_publish_gui)
 find_package(catkin REQUIRED COMPONENTS
         roscpp
         rviz
-        bringup
+        mg400_bringup
         )
 
 find_package(Qt5 REQUIRED COMPONENTS
