@@ -11,7 +11,7 @@
 #include "main_window.h"
 #include "ui_main_window.h"
 
-#include <bringup/convert.h>
+#include <mg400_bringup/convert.h>
 #include <sensor_msgs/JointState.h>
 
 MainWindow::MainWindow(ros::NodeHandle& nh, QWidget* parent) : QWidget(parent), nh_(nh), ui_(new Ui::MainWindow)
