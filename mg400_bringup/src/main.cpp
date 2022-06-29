@@ -57,8 +57,6 @@ int main(int argc, char* argv[])
             tool_vector_actual_msg.y = val[1];
             tool_vector_actual_msg.z = val[2];
             tool_vector_actual_msg.rx = val[3];
-            tool_vector_actual_msg.ry = val[4];
-            tool_vector_actual_msg.rz = val[5];
             tool_vector_pub.publish(tool_vector_actual_msg);
 
             //

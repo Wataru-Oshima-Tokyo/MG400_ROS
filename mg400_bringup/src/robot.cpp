@@ -771,7 +771,7 @@ bool MG400Robot::movJ(mg400_bringup::MovJ::Request& request, mg400_bringup::MovJ
 {
     try
     {
-        commander_->movJ(request.x, request.y, request.z, request.a, request.b, request.c);
+        commander_->movJ(request.x, request.y, request.z, request.r);
         response.res = 0;
         return true;
     }
@@ -787,7 +787,7 @@ bool MG400Robot::movL(mg400_bringup::MovL::Request& request, mg400_bringup::MovL
 {
     try
     {
-        commander_->movL(request.x, request.y, request.z, request.a, request.b, request.c);
+        commander_->movL(request.x, request.y, request.z, request.r);
         response.res = 0;
         return true;
     }
@@ -927,7 +927,7 @@ bool MG400Robot::jointMovJ(mg400_bringup::JointMovJ::Request& request, mg400_bri
 {
     try
     {
-        commander_->jointMovJ(request.j1, request.j2, request.j3, request.j4, request.j5, request.j6);
+        commander_->jointMovJ(request.j1, request.j2, request.j3, request.j4);
         response.res = 0;
         return true;
     }

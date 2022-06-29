@@ -225,24 +225,24 @@ public:
      *------------------------------------------------------------------------------------------------------------------
      */
 
-    void movJ(double x, double y, double z, double a, double b, double c)
+    void movJ(double x, double y, double z, double r)
     {
         char cmd[100];
-        sprintf(cmd, "MovJ(%0.3f,%0.3f,%0.3f,%0.3f,%0.3f,%0.3f)", x, y, z, a, b, c);
+        sprintf(cmd, "MovJ(%0.3f,%0.3f,%0.3f,%0.3f,%0.3f,%0.3f)", x, y, z, r);
         real_time_tcp_->tcpSend(cmd, strlen(cmd));
     }
 
-    void movL(double x, double y, double z, double a, double b, double c)
+    void movL(double x, double y, double z, double r)
     {
         char cmd[100];
-        sprintf(cmd, "MovL(%0.3f,%0.3f,%0.3f,%0.3f,%0.3f,%0.3f)", x, y, z, a, b, c);
+        sprintf(cmd, "MovL(%0.3f,%0.3f,%0.3f,%0.3f,%0.3f,%0.3f)", x, y, z, r);
         real_time_tcp_->tcpSend(cmd, strlen(cmd));
     }
 
-    void jointMovJ(double j1, double j2, double j3, double j4, double j5, double j6)
+    void jointMovJ(double j1, double j2, double j3, double j4)
     {
         char cmd[100];
-        sprintf(cmd, "JointMovJ(%0.3f,%0.3f,%0.3f,%0.3f,%0.3f,%0.3f)", j1, j2, j3, j4, j5, j6);
+        sprintf(cmd, "JointMovJ(%0.3f,%0.3f,%0.3f,%0.3f,%0.3f,%0.3f)", j1, j2, j3, j4);
         real_time_tcp_->tcpSend(cmd, strlen(cmd));
     }
 
