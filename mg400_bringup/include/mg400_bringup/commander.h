@@ -142,7 +142,7 @@ public:
                     }
                     else
                     {
-                        ROS_WARN("tcp recv timeout");
+                        ROS_WARN("tcp recv timeout. Length: %d", real_time_data_.len);
                     }
                 }
                 else
