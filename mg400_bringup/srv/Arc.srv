@@ -1,16 +1,16 @@
 float64 x1
 float64 y1
 float64 z1
-float64 a1
-float64 b1
-float64 c1
+float64 rx1
+float64 ry1
+float64 rz1
 
 float64 x2
 float64 y2
 float64 z2
-float64 a2
-float64 b2
-float64 c2
+float64 rx2
+float64 ry2
+float64 rz2
 
 ---
 
