@@ -132,15 +132,17 @@ public:
                             continue;
 
                         mutex_.lock();
-                        for (uint32_t i = 0; i < 6; i++)
+                        for (uint32_t i = 0; i < 6; i++){
                             current_joint_[i] = deg2Rad(real_time_data_.q_actual[i]);
+                        }
+                        ROS_INFO_STREAM("get the feedback");
 
                         memcpy(tool_vector_, real_time_data_.tool_vector_actual, sizeof(tool_vector_));
                         mutex_.unlock();
                     }
                     else
                     {
-                        //                        ROS_WARN("tcp recv timeout");
+                        ROS_WARN("tcp recv timeout");
                     }
                 }
                 else
