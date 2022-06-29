@@ -88,6 +88,7 @@ private:
     std::unique_ptr<std::thread> thread_;
     std::shared_ptr<TcpClient> real_time_tcp_;
     std::shared_ptr<TcpClient> dash_board_tcp_;
+    std::shared_ptr<TcpClient> feed_back_tcp_;
 
 public:
     explicit CR5Commander(const std::string& ip)
