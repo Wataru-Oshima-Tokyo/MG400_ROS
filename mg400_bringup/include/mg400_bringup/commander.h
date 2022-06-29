@@ -128,7 +128,7 @@ public:
                 {
                     if (real_time_tcp_->tcpRecv(&real_time_data_, sizeof(real_time_data_), 5000))
                     {
-                        if (real_time_data_.len != 1440)
+                        if (real_time_data_.len != 1024)
                             continue;
 
                         mutex_.lock();
