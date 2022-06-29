@@ -126,25 +126,25 @@ public:
         {
             try
             {
-                if (dash_board_tcp_->isConnect() && real_time_tcp_->isConnect())
+                if (dash_board_tcp_->isConnect() && real_time_tcp_->isConnect() && feed_back_tcp_->isConnect())
                 {
                     if (feed_back_tcp_->tcpRecv(&real_time_data_, sizeof(real_time_data_), 5000))
                     {
-                        if (feed_back_tcp_.len != 1440)
+                        if (real_time_data_.len != 1440)
                             continue;
 
                         mutex_.lock();
                         for (uint32_t i = 0; i < 6; i++){
-                            current_joint_[i] = deg2Rad(feed_back_tcp_.q_actual[i]);
+                            current_joint_[i] = deg2Rad(real_time_data_.q_actual[i]);
                         }
                         ROS_INFO_STREAM("get the feedback");
 
-                        memcpy(tool_vector_, feed_back_tcp_.tool_vector_actual, sizeof(tool_vector_));
+                        memcpy(tool_vector_, real_time_data_.tool_vector_actual, sizeof(tool_vector_));
                         mutex_.unlock();
                     }
                     else
                     {
-                        ROS_WARN("tcp recv timeout. Length: %d", feed_back_tcp_.len);
+                        ROS_WARN("tcp recv timeout. Length: %d", real_time_data_.len);
                     }
                 }
                 else
@@ -153,6 +153,7 @@ public:
                     {
                         real_time_tcp_->connect();
                         dash_board_tcp_->connect();
+                        feed_back_tcp_->connect();
                     }
                     catch (const TcpClientException& err)
                     {
