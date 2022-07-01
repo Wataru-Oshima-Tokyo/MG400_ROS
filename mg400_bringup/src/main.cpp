@@ -63,6 +63,7 @@ int main(int argc, char* argv[])
             // publish robot status
             //
             robot_status_msg.is_enable = robot.isEnable();
+            robot_status_msg.robot_status = robot.robotStatus();
             robot_status_msg.is_connected = robot.isConnected();
             robot_status_pub.publish(robot_status_msg);
 
