@@ -175,7 +175,7 @@ void MG400Robot::getJointState(double* point)
     commander_->getCurrentJointStatus(point);
 }
 
-int MG400::robotStatus() const
+int MG400Robot::robotStatus() const
 {
     return commander_->robotStatus();
 }

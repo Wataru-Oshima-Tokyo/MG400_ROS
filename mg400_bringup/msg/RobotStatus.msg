@@ -1,3 +1,3 @@
 bool is_enable
-int robot_status
+int8 robot_status
 bool is_connected

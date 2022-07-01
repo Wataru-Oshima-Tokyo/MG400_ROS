@@ -185,7 +185,7 @@ public:
 
     int robotStatus() const
     {
-        return real_time_data.robot_mode;
+        return real_time_data_.robot_mode;
     }
     
     bool isEnable() const
