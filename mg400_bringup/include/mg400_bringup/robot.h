@@ -124,7 +124,9 @@ public:
      * @return ture enable, otherwise false
      */
     bool isEnable() const;
-
+    
+    
+    int robotStatus() const;
     /**
      * isConnected
      * @return ture connected, otherwise false
