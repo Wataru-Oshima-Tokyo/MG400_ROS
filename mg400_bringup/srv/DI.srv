@@ -1,8 +1,7 @@
-    def DI(self, index):
-        """
-        Get digital signal ijnput (Queue instruction)
-        index : Digital input index (Value range:1~24)
-        """
-        string = "DI({:d})".format(index)
-        self.send_data(string)
-        return self.wait_reply()
+# r --> 1 - 24
+int32 index
+int32 status
+---
+int32 res
+
+
